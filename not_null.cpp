@@ -31,13 +31,13 @@ TEST(not_null, null_ptr_vs_allowed) {
 	ASSERT_EXIT(
 		(null_allowed(nullptr), exit(0)),
 		::testing::KilledBySignal(SIGSEGV),
-		""
+		".*"
 	);
 }
 
 TEST(not_null, null_ptr_vs_protected) {
 	int* ptr = nullptr;
-	null_protected(ptr);
+	EXPECT_DEATH(null_protected(ptr), ".*"); // std::terminate to be called 
 }
 
 //TEST(not_null, null_ptr_vs_protected_2) {
