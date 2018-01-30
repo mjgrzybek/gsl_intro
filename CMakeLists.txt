@@ -14,6 +14,7 @@ set(SRC_LIST
 	not_null.cpp
 	owner.cpp
 	span.cpp
+	narrow_cast.cpp
 )
 
 set(APP_NAME gsl)
