@@ -38,7 +38,14 @@ TEST(span, carray) {
 	display(s);
 
 	auto ss = s.subspan(2,5);
+
 	display(ss);
+
+	EXPECT_TRUE(ss == ss);
+	EXPECT_FALSE(ss != ss);
+
+	EXPECT_TRUE(s != ss);
+	EXPECT_FALSE(s == ss);
 }
 
 
@@ -51,6 +58,12 @@ TEST(span, array) {
 
 	auto ss = s.subspan(2,5);
 	display(ss);
+
+	EXPECT_TRUE(ss == ss);
+	EXPECT_FALSE(ss != ss);
+
+	EXPECT_TRUE(s != ss);
+	EXPECT_FALSE(s == ss);
 }
 
 
@@ -63,5 +76,11 @@ TEST(span, vector) {
 
 	auto ss = s.subspan(2,5);
 	display(ss);
+
+	EXPECT_TRUE(ss == ss);
+	EXPECT_FALSE(ss != ss);
+
+	EXPECT_TRUE(s != ss);
+	EXPECT_FALSE(s == ss);
 }
 
