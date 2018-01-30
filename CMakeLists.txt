@@ -12,6 +12,8 @@ include_directories(${GSL_INCLUDE_DIR})
 set(SRC_LIST
 	main.cpp
 	not_null.cpp
+	owner.cpp
+	span.cpp
 )
 
 set(APP_NAME gsl)
