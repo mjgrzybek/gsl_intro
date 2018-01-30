@@ -84,3 +84,18 @@ TEST(span, vector) {
 	EXPECT_FALSE(s == ss);
 }
 
+TEST(span, element_access) {
+	int arr[] = {1,2,3,4,5};
+	gsl::span<int> s {arr};
+	
+	const auto sz = s.size();
+	EXPECT_EQ(sz, 5);
+
+	for(size_t i=0; i<sz; ++i)
+		EXPECT_EQ(arr[i], s[i]); 
+
+	// boundries safety:
+	const size_t out_of_bounds_idx = 10;
+	std::cout << arr[out_of_bounds_idx];
+	EXPECT_DEATH(std::cout << s[out_of_bounds_idx], ".*");
+}
