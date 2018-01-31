@@ -3,7 +3,7 @@
 #include <gsl/gsl>
 #include <iostream>
 
-oid nullAllowed(int* val)
+void nullAllowed(int* val)
 {
 	std::cout << *val << std::endl;
 	*val = 271;
@@ -28,6 +28,7 @@ TEST(not_null, valid_ptr_vs_protected) {
 }
 
 TEST(not_null, null_ptr_vs_allowed) {
+//	nullAllowed(nullptr);
 	ASSERT_EXIT(
 		(nullAllowed(nullptr), exit(0)),
 		::testing::KilledBySignal(SIGSEGV),
@@ -37,6 +38,7 @@ TEST(not_null, null_ptr_vs_allowed) {
 
 TEST(not_null, null_ptr_vs_protected) {
 	int* ptr = nullptr;
+//	nullProtected(ptr),
 	EXPECT_DEATH(nullProtected(ptr), ".*"); // std::terminate to be called 
 }
 

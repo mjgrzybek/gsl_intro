@@ -38,6 +38,7 @@ TEST(span, carray) {
 	display(s);
 
 	auto ss = s.subspan(2,5);
+	// auto ss = s.subspan<2,5>();
 
 	display(ss);
 
@@ -96,7 +97,9 @@ TEST(span, element_access) {
 
 	// boundries safety:
 	const size_t out_of_bounds_idx = 10;
+
 	std::cout << ">>>>" << arr[out_of_bounds_idx] << "<<<<" << std::endl;
-	EXPECT_DEATH(std::cout << ">>>>" << s[out_of_bounds_idx] << "<<<<" << std::endl, ".*");
+
 	//std::cout << ">>>>" << s[out_of_bounds_idx] << "<<<<" << std::endl;
+	EXPECT_DEATH(std::cout << ">>>>" << s[out_of_bounds_idx] << "<<<<" << std::endl, ".*");
 }

@@ -57,6 +57,7 @@ TEST(narrow_cast, overflow_narrow) {
 	int a = std::numeric_limits<unsigned char>::max() + 15;
 	unsigned char c = 0;
 
+//	c = gsl::narrow<unsigned char>(a),
 	EXPECT_DEATH(
 		c = gsl::narrow<unsigned char>(a),
 		".*"
