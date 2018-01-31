@@ -96,6 +96,7 @@ TEST(span, element_access) {
 
 	// boundries safety:
 	const size_t out_of_bounds_idx = 10;
-	std::cout << arr[out_of_bounds_idx];
-	EXPECT_DEATH(std::cout << s[out_of_bounds_idx], ".*");
+	std::cout << ">>>>" << arr[out_of_bounds_idx] << "<<<<" << std::endl;
+	EXPECT_DEATH(std::cout << ">>>>" << s[out_of_bounds_idx] << "<<<<" << std::endl, ".*");
+	//std::cout << ">>>>" << s[out_of_bounds_idx] << "<<<<" << std::endl;
 }
