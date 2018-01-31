@@ -7,14 +7,14 @@ TEST(finally, clean_memory) {
 	int* i = new int[16];
 	
 	try {
-		throw std::exception();
-	
 		auto _ = gsl::finally(
 			[&]() {
 				std::cout << "Cleaning!" << std::endl;
 				delete[] i;	
 			}
 		);
+
+		throw std::exception();
 
 		std::cout << "never printed" << std::endl;
 	}
