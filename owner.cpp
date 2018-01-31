@@ -14,7 +14,7 @@ TEST(owner, has_ownership) {
 TEST(owner, unknown_ownership) {
 	int* ptr = new int;
 
-	// also OK, but static code analyzer may complain
+	// technically OK, but static code analyzer should complain
 	delete ptr;
 }
 
