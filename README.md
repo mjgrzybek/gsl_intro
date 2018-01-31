@@ -1,7 +1,7 @@
 # GSL sample usages
 
 # Prerequisities
-GTest required default include path.
+GTest required in default include path.
 
 # Build:
 ```
