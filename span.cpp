@@ -8,7 +8,7 @@
 #include <string>
 
 template<typename T>
-void display(gsl::span<T> collection) 
+void display(const gsl::span<T>& collection) 
 {
 	std::cout << "size=" << collection.size();
 	std::cout << "\t";
@@ -54,6 +54,8 @@ TEST(span, array) {
 	using DataT = char;
 	std::array<DataT, 9> v { 'D', 'y', 'n', 'a', 't', 'r', 'a', 'c', 'e'};
 
+	display(gsl::make_span(v));
+
 	gsl::span<DataT> s {v};
 	display(s);
 
@@ -72,6 +74,8 @@ TEST(span, vector) {
 	using DataT = char;
 	std::vector<DataT> v { 'D', 'y', 'n', 'a', 't', 'r', 'a', 'c', 'e'};
 
+	display(gsl::make_span(v));
+
 	gsl::span<DataT> s {v};
 	display(s);
 
@@ -84,6 +88,7 @@ TEST(span, vector) {
 	EXPECT_TRUE(s != ss);
 	EXPECT_FALSE(s == ss);
 }
+
 
 TEST(span, element_access) {
 	int arr[] = {1,2,3,4,5};
