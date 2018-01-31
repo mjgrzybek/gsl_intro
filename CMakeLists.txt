@@ -13,6 +13,7 @@ set(SRC_LIST
 	owner.cpp
 	span.cpp
 	narrow_cast.cpp
+	finally.cpp
 )
 
 set(APP_NAME gsl_examples)
